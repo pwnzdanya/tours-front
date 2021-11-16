@@ -1,0 +1,1 @@
+export { TourCardBody } from './TourCardBody';

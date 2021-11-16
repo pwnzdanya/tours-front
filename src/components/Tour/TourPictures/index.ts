@@ -1,0 +1,1 @@
+export { TourPictures } from './TourPictures';

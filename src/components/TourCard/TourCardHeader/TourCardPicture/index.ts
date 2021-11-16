@@ -1,0 +1,1 @@
+export { TourCardPicture } from './TourCardPicture';

@@ -1,0 +1,1 @@
+export { TourCardFooter } from './TourCardFooter';
