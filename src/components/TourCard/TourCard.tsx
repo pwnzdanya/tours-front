@@ -9,9 +9,9 @@ import { TourCardHeader } from './TourCardHeader';
 export const TourCardStyled = styled.article`
   width: 100%;
   max-width: 365px;
-  border-radius: 9px;
+  border-radius: ${({ theme }) => theme.borderRadius};
   box-shadow: 0 6px 16px rgba(0, 0, 0, 0.2);
-  background-color: #f5f5f5;
+  background-color: white;
   transition: 0.3s all;
 `;
 

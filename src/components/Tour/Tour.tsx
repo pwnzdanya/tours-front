@@ -8,14 +8,14 @@ import { TourHeader } from './TourHeader';
 import { TourPictures } from './TourPictures';
 import { TourReviews } from './TourReviews';
 
-const TourStyled = styled.section``;
+const Wrapper = styled.section``;
 
 export const Tour = () => (
-  <TourStyled>
+  <Wrapper>
     <TourHeader />
     <TourDetails />
     <TourPictures />
     <TourReviews />
     <Cta />
-  </TourStyled>
+  </Wrapper>
 );

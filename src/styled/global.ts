@@ -9,14 +9,18 @@ export const GlobalStyle = createGlobalStyle`
   }
   
   body {
-    font-family: 'Montserrat', sans-serif;
+    font-family: ${({ theme }) => theme.fonts.text};
     font-size: 15px;
     font-weight: 400;
-    color: #2A364E;
+    line-height: 1.4;
   }
   
   ul {
    list-style: none;
+  }
+  
+  h1,h2,h3,h4,h5 {
+   font-family: ${({ theme }) => theme.fonts.heading}
   }
   
 `;

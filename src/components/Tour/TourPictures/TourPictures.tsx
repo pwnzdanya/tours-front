@@ -15,9 +15,9 @@ const TourPicturesStyled = styled.div`
   z-index: 1000;
 `;
 
-const TourPicturesBox = styled.div``;
+const Box = styled.div``;
 
-const TourPicturesImg = styled.img<ITourPicturesImgProps>`
+const Image = styled.img<ITourPicturesImgProps>`
   display: block;
   width: 100%;
   height: 100%;
@@ -27,26 +27,26 @@ const TourPicturesImg = styled.img<ITourPicturesImgProps>`
 
 export const TourPictures = () => (
   <TourPicturesStyled>
-    <TourPicturesBox>
-      <TourPicturesImg
+    <Box>
+      <Image
         src="https://blog.airbaltic.com/wp-content/uploads/2020/01/Lviv.jpg"
         alt=""
         padding="15% 0 0 0"
       />
-    </TourPicturesBox>
-    <TourPicturesBox>
-      <TourPicturesImg
+    </Box>
+    <Box>
+      <Image
         src="https://blog.airbaltic.com/wp-content/uploads/2020/01/Lviv.jpg"
         alt=""
         padding="0 0 15% 0"
       />
-    </TourPicturesBox>
-    <TourPicturesBox>
-      <TourPicturesImg
+    </Box>
+    <Box>
+      <Image
         src="https://blog.airbaltic.com/wp-content/uploads/2020/01/Lviv.jpg"
         alt=""
         padding="0 0 27% 0"
       />
-    </TourPicturesBox>
+    </Box>
   </TourPicturesStyled>
 );

@@ -7,7 +7,7 @@ import { Flex } from 'styled/Flex';
 
 const CardFooter = styled.div`
   padding: 15px 30px;
-  background-color: #dfdddd;
+  background-color: ${({ theme }) => theme.colors.secondary};
   border-top: 1px solid #f1f1f1;
 `;
 

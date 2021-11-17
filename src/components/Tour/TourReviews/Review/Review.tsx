@@ -5,7 +5,7 @@ import styled from 'styled-components';
 
 import 'rc-rate/assets/index.css';
 import { Avatar } from '../../../styled/Avatar';
-import { BoldText } from '../../TourDetails/ShortDescription/ShortDescription';
+import { BoldText } from '../../TourDetails/Overview/Overview';
 
 import { Flex } from 'styled/Flex';
 
@@ -17,8 +17,7 @@ const ReviewStyled = styled.article`
   width: 290px;
   padding: 22px 35px;
   border-radius: 4px;
-  background-color: pink;
-  box-shadow: 3px 8px 8px rgba(0, 0, 0, 0.5);
+  background-color: white;
 `;
 
 const ReviewAuthor = styled(Flex)`
@@ -39,15 +38,21 @@ const StyledRate = styled(Rate)<IRate>`
   &.rc-rate {
     font-size: ${({ size }) => size}px;
   }
+  .rc-rate-star-half .rc-rate-star-first,
+  .rc-rate-star-full .rc-rate-star-second {
+    color: #2a364e;
+  }
 `;
 
-const TextPosted = styled.span`
-  display: block;
-  text-align: end;
+const Date = styled(Flex)`
   margin-top: 5px;
   font-size: 11px;
   font-style: italic;
-  color: #c1c1c1;
+  color: #2a364e;
+
+  p {
+    border-bottom: 1px solid #2a364e;
+  }
 `;
 
 export const Review = () => (
@@ -66,6 +71,8 @@ export const Review = () => (
       </p>
     </Text>
     <StyledRate size="24" value={4.5} allowHalf />
-    <TextPosted>posted 23.10.2020</TextPosted>
+    <Date justify="flex-end">
+      <p>posted 23.10.2020</p>
+    </Date>
   </ReviewStyled>
 );

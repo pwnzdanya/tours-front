@@ -3,6 +3,7 @@ import React from 'react';
 import styled from 'styled-components';
 
 import sprite from '../../../icons.svg';
+import { Text } from '../../../styled/Text';
 
 import { Svg } from 'styled/Svg';
 
@@ -14,21 +15,17 @@ const CardBody = styled.div`
   padding: 15px 30px;
 `;
 
-const CardSubtitle = styled.h5`
+const Subtitle = styled.h5`
+  font-size: 16px;
   margin-bottom: 10px;
-  font-weight: 700;
-`;
-
-const CardDescription = styled.div`
-  margin-bottom: 15px;
-  font-style: italic;
-  color: #949494;
+  font-weight: 600;
 `;
 
 export const CardList = styled.ul<ICardListProps>`
   display: flex;
   flex-wrap: wrap;
   width: ${({ width }) => width || '100%'};
+  font-family: ${({ theme }) => theme.fonts.heading};
 `;
 
 export const CardItem = styled.li`
@@ -38,35 +35,46 @@ export const CardItem = styled.li`
   padding: 5px 0;
 `;
 
+const TextStyled = styled(Text)`
+  margin-bottom: 15px;
+  font-style: italic;
+  color: #c7c7c7;
+`;
+
+const StyledSvg = styled(Svg)`
+  margin-right: 7px;
+  margin-top: -2px;
+`;
+
 export const TourCardBody = () => (
   <CardBody>
-    <CardSubtitle>7-day tour</CardSubtitle>
-    <CardDescription>
+    <Subtitle>7-day tour</Subtitle>
+    <TextStyled>
       <p>Exploring the jaw-dropping US east coast by foot and by boad</p>
-    </CardDescription>
+    </TextStyled>
     <CardList>
       <CardItem>
-        <Svg>
+        <StyledSvg>
           <use href={`${sprite}#icon-map-pin`} />
-        </Svg>
+        </StyledSvg>
         Lviv, Ukraine
       </CardItem>
       <CardItem>
-        <Svg>
+        <StyledSvg>
           <use href={`${sprite}#icon-calendar`} />
-        </Svg>
+        </StyledSvg>
         June 2021
       </CardItem>
       <CardItem>
-        <Svg>
+        <StyledSvg>
           <use href={`${sprite}#icon-flag`} />
-        </Svg>
+        </StyledSvg>
         4 stops
       </CardItem>
       <CardItem>
-        <Svg>
+        <StyledSvg>
           <use href={`${sprite}#icon-user`} />
-        </Svg>
+        </StyledSvg>
         15 people
       </CardItem>
     </CardList>

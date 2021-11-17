@@ -4,6 +4,8 @@ import styled from 'styled-components';
 
 import { Button } from '../../../styled/Button';
 import { Flex } from '../../../styled/Flex';
+import { Text } from '../../../styled/Text';
+import { Logo } from '../../Logo';
 
 const CtaStyled = styled(Flex)``;
 
@@ -12,7 +14,7 @@ const CtaWrapper = styled(Flex)`
   width: 100%;
   max-width: 800px;
   border-radius: 6px;
-  background-color: pink;
+  background-color: #ecebeb;
   font-weight: 500;
 `;
 
@@ -23,22 +25,24 @@ const Title = styled.h3`
   text-transform: uppercase;
 `;
 
-const Text = styled.div``;
+const ButtonStyled = styled(Button)`
+  padding: 15px 20px;
+  margin-top: 13px;
+`;
 
-const Logo = styled.div``;
 const Description = styled.div``;
 
 export const Cta = () => (
   <CtaStyled justify="center">
     <CtaWrapper justify="space-between" align="center">
-      <Logo>LOGO V KRUGE</Logo>
+      <Logo />
       <Description>
         <Title>What are you waiting for?</Title>
         <Text>
           <p>14 days. 1 adventure. Infinite memories. Make it your today!</p>
         </Text>
       </Description>
-      <Button>Book tour now</Button>
+      <ButtonStyled>Book tour now</ButtonStyled>
     </CtaWrapper>
   </CtaStyled>
 );

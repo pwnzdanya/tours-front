@@ -1,20 +1,25 @@
 import React, { ReactElement } from 'react';
 
+import { ThemeProvider } from 'styled-components';
+
 import { Tour, TourCard } from './components';
 import { Container } from './styled/Container';
 import { Nullable } from './types/Nullable';
 
 import { GlobalStyle } from 'styled/global';
+import { myTheme } from 'styled/theme';
 
 const App = (): Nullable<ReactElement> => {
-  const q = false;
-  const w = true;
+  const q = true;
+  const w = false;
   return (
-    <Container>
-      <GlobalStyle />
-      {q && <TourCard />}
-      {w && <Tour />}
-    </Container>
+    <ThemeProvider theme={myTheme}>
+      <Container>
+        <GlobalStyle />
+        {q && <TourCard />}
+        {w && <Tour />}
+      </Container>
+    </ThemeProvider>
   );
 };
 

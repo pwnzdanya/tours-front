@@ -5,18 +5,18 @@ import styled from 'styled-components';
 import sprite from '../../../../icons.svg';
 import { Flex } from '../../../../styled/Flex';
 import { Svg } from '../../../../styled/Svg';
+import { Text } from '../../../../styled/Text';
 import { Avatar } from '../../../styled/Avatar';
 import { SubTitle } from '../styled/SubTitle';
 
-const ShortDescriptionWrapper = styled(Flex)`
+const Wrapper = styled(Flex)`
   width: 50%;
-  padding-top: 100px;
-  margin-top: -50px;
-  padding-bottom: 60px;
-  background-color: #f1f1f1;
+  padding-top: calc(9vw + 50px);
+  padding-bottom: 9vw;
+  background-color: #ecebeb;
 `;
 
-const Wrapper = styled.div`
+const Container = styled.div`
   &:not(:last-child) {
     margin-bottom: 55px;
   }
@@ -29,63 +29,65 @@ const Item = styled.li`
   }
 `;
 
-export const BoldText = styled.span`
+export const BoldText = styled(Text)`
   margin-right: 12px;
   text-transform: uppercase;
   font-weight: 600;
 `;
 
-const Text = styled.span`
-  color: #949494;
-  font-size: 14px;
-  font-weight: 300;
+export const TextStyled = styled(Text)`
+  color: #0a0a0a;
 `;
 
-export const ShortDescription = () => (
-  <ShortDescriptionWrapper justify="center" align="center" direction="column">
-    <Wrapper>
+export const SvgStyled = styled(Svg)`
+  margin-right: 7px;
+`;
+
+export const Overview = () => (
+  <Wrapper justify="center" align="center" direction="column">
+    <Container>
       <SubTitle marginBottom="25px">quick facts</SubTitle>
       <List>
         <Item>
           <Flex align="center">
-            <Svg>
+            <SvgStyled>
               <use href={`${sprite}#icon-map-pin`} />
-            </Svg>
+            </SvgStyled>
             <BoldText>next date</BoldText>
-            <Text>August 2021</Text>
+            <TextStyled>August 2021</TextStyled>
           </Flex>
         </Item>
         <Item>
           <Flex align="center">
-            <Svg>
+            <SvgStyled>
               <use href={`${sprite}#icon-user`} />
-            </Svg>
+            </SvgStyled>
             <BoldText>participants</BoldText>
-            <Text>15 people</Text>
+            <TextStyled>15 people</TextStyled>
           </Flex>
         </Item>
         <Item>
           <Flex align="center">
-            <Svg>
+            <SvgStyled>
               <use href={`${sprite}#icon-star`} />
-            </Svg>
+            </SvgStyled>
             <BoldText>Rating</BoldText>
-            <Text>4.7 / 5</Text>
+            <TextStyled>4.7 / 5</TextStyled>
           </Flex>
         </Item>
         <Item>
           <Flex align="center">
-            <Svg>
+            <SvgStyled>
               <use href={`${sprite}#icon-map-pin`} />
-            </Svg>
+            </SvgStyled>
             <BoldText>next date</BoldText>
-            <Text>August 2021</Text>
+            <TextStyled>August 2021</TextStyled>
           </Flex>
         </Item>
       </List>
-    </Wrapper>
+    </Container>
 
-    <Wrapper>
+    <Container>
       <SubTitle marginBottom="25px">Your tour guides</SubTitle>
       <List>
         {/* map */}
@@ -96,7 +98,7 @@ export const ShortDescription = () => (
               marginRight="7px"
             />
             <BoldText>Lead guide</BoldText>
-            <Text>Orest</Text>
+            <TextStyled>Orest</TextStyled>
           </Flex>
         </Item>
         <Item>
@@ -106,7 +108,7 @@ export const ShortDescription = () => (
               marginRight="7px"
             />
             <BoldText>Tour guide</BoldText>
-            <Text>Andrew</Text>
+            <TextStyled>Andrew</TextStyled>
           </Flex>
         </Item>
         <Item>
@@ -116,10 +118,10 @@ export const ShortDescription = () => (
               marginRight="7px"
             />
             <BoldText>Tour guide</BoldText>
-            <Text>Kate</Text>
+            <TextStyled>Kate</TextStyled>
           </Flex>
         </Item>
       </List>
-    </Wrapper>
-  </ShortDescriptionWrapper>
+    </Container>
+  </Wrapper>
 );
