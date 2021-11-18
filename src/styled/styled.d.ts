@@ -10,6 +10,7 @@ declare module 'styled-components' {
       main: string;
       secondary: string;
       error: string;
+      mainHover: string;
     };
 
     fonts: {

@@ -7,6 +7,7 @@ const myTheme: DefaultTheme = {
     main: '#2a364e',
     secondary: '#ecebeb',
     error: '#c93737',
+    mainHover: '2e4166',
   },
 
   fonts: {

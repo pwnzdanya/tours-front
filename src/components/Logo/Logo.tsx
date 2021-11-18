@@ -1,20 +1,16 @@
 import React from 'react';
 
-import styled from 'styled-components';
+import sprite from '../../icons.svg';
 
-import img from './logofull.png';
+import { Svg } from 'styled/Svg';
 
-const Wrapper = styled.div`
-  width: 120px;
-  height: 100px;
-  margin-right: 10px;
-`;
-const Img = styled.img`
-  width: 100%;
-  height: 100%;
-`;
-export const Logo = () => (
-  <Wrapper>
-    <Img src={img} alt="logo" />
-  </Wrapper>
+interface ILogoProps {
+  width: string;
+  height: string;
+}
+
+export const Logo: React.FC<ILogoProps> = ({ width, height, ...props }) => (
+  <Svg width={width} height={height} {...props}>
+    <use href={`${sprite}#icon-logo`} />
+  </Svg>
 );

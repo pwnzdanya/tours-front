@@ -2,6 +2,7 @@ import styled, { css } from 'styled-components';
 
 interface IButtonProps {
   error?: boolean;
+  transp?: boolean;
 }
 
 export const Button = styled.button<IButtonProps>`
@@ -17,7 +18,7 @@ export const Button = styled.button<IButtonProps>`
 
   &:hover {
     color: #fff;
-    background-color: #2e4166;
+    background-color: ${({ theme }) => theme.colors.mainHover};
   }
 
   &:disabled {
@@ -33,6 +34,23 @@ export const Button = styled.button<IButtonProps>`
 
       &:hover {
         background-color: #d93c2c;
+      }
+    `}
+
+  ${props =>
+    props.transp &&
+    css`
+      padding: 0 3px;
+      background-color: transparent;
+      border-bottom: 2px solid ${({ theme }) => theme.colors.main};
+      color: ${({ theme }) => theme.colors.main};
+      font-weigh: 600;
+      border-radius: 0;
+
+      &:hover {
+        background-color: transparent;
+        color: #2e4166;
+        border-color: #2e4166;
       }
     `}
 `;

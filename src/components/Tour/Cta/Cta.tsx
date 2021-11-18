@@ -35,7 +35,7 @@ const Description = styled.div``;
 export const Cta = () => (
   <CtaStyled justify="center">
     <CtaWrapper justify="space-between" align="center">
-      <Logo />
+      <Logo width="100px" height="100px" />
       <Description>
         <Title>What are you waiting for?</Title>
         <Text>

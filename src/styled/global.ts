@@ -9,6 +9,8 @@ export const GlobalStyle = createGlobalStyle`
   }
   
   body {
+    min-height: 100vh;
+    background: linear-gradient(180deg, #E6D4DE 0%, #9890C7 100%);
     font-family: ${({ theme }) => theme.fonts.text};
     font-size: 15px;
     font-weight: 400;
