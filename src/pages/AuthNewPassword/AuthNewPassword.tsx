@@ -1,12 +1,21 @@
-import React, { useState } from 'react';
+import React from 'react';
 
+import { yupResolver } from '@hookform/resolvers/yup';
+import { useForm } from 'react-hook-form';
+import { useNavigate, useParams } from 'react-router-dom';
 import styled from 'styled-components';
+import * as yup from 'yup';
 
-import { CustomInput } from '../../components/UI';
+import PasswordInput from '../../components/PasswordInput/PasswordInput';
+import { Loader } from '../../components/UI/Loader';
+import { useAppDispatch } from '../../hooks/appDispatch';
+import { useAppSelector } from '../../hooks/appSelector';
+import { fetchReset } from '../../store/auth/actions';
+import { LoadingStatus } from '../../store/types';
 import { Button } from '../../styled/Button';
 import { Flex } from '../../styled/Flex';
-import { RevealText } from '../Auth/Auth';
-import { AuthBox } from '../Auth/AuthBox';
+import { Overlay } from '../../styled/Overlay';
+import { AuthBox, ErrorText, Form, FormItem } from '../Auth/AuthBox';
 import { StyledText, StyledTitle } from '../Auth/AuthForgot';
 
 const Wrapper = styled(Flex)`
@@ -21,22 +30,48 @@ const StyledButton = styled(Button)`
 `;
 
 export const AuthNewPassword = () => {
-  const [isPassHidden, setIsPassHidden] = useState(true);
-
-  const onRevealTextClick = () => setIsPassHidden(!isPassHidden);
+  const dispatch = useAppDispatch();
+  const navigate = useNavigate();
+  const loadingStatus = useAppSelector(state => state.auth.loadingAuthStatus);
+  const { token } = useParams();
+  const resetPassSchema = yup
+    .object({
+      password: yup.string().min(6).max(40).required(),
+    })
+    .required();
+  const {
+    register,
+    handleSubmit,
+    formState: { errors },
+  } = useForm({
+    resolver: yupResolver(resetPassSchema),
+  });
+  const onSubmit = (data: { password: string }) => {
+    const resetData = { ...data, token, navigate };
+    dispatch(fetchReset(resetData));
+  };
 
   return (
-    <AuthBox>
-      <Wrapper direction="column">
-        <StyledTitle margin="0 0 35px 0">Create new password</StyledTitle>
-        <CustomInput name="password" label="password" />
-        <RevealText onClick={onRevealTextClick}>
-          {isPassHidden ? 'Reveal password' : 'Hide password'}
-        </RevealText>
-        <StyledText margin="-30px 0 0 0 ">Please enter your new password</StyledText>
-        <StyledButton>Create new password</StyledButton>
-      </Wrapper>
-    </AuthBox>
+    <>
+      {loadingStatus === LoadingStatus.LOADING && (
+        <Overlay>
+          <Loader />
+        </Overlay>
+      )}
+      <AuthBox>
+        <Wrapper direction="column">
+          <StyledTitle margin="0 0 35px 0">Create new password</StyledTitle>
+          <Form onSubmit={handleSubmit(onSubmit)} noValidate>
+            <FormItem>
+              <PasswordInput name="password" label="password" register={register} />
+              <ErrorText> {errors.password?.message}</ErrorText>
+            </FormItem>
+            <StyledText margin="-30px 0 0 0 ">Please enter your new password</StyledText>
+            <StyledButton>Create new password</StyledButton>
+          </Form>
+        </Wrapper>
+      </AuthBox>
+    </>
   );
 };
 

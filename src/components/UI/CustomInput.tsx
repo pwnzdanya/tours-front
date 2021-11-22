@@ -6,7 +6,6 @@ type CustomInputType = DetailedHTMLProps<
   InputHTMLAttributes<HTMLInputElement>,
   HTMLInputElement
 > & {
-  // eslint-disable-next-line react/require-default-props
   register?: any;
   label: string;
 };
@@ -21,7 +20,7 @@ const Input = styled.input`
   width: 100%;
   background: none;
   font-size: 17px;
-  padding: 28px 10px 10px 5px;
+  padding: 20px 10px 10px 5px;
   border-radius: ${({ theme }) => theme.borderRadius};
   border: 1px solid ${({ theme }) => theme.colors.main};
 

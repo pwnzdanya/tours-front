@@ -25,4 +25,8 @@ export const GlobalStyle = createGlobalStyle`
    font-family: ${({ theme }) => theme.fonts.heading}
   }
   
+  a {
+    color: inherit; /* blue colors for links too */
+    text-decoration: inherit; /* no underline */
+  }
 `;

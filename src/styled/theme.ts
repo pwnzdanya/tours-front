@@ -6,6 +6,7 @@ const myTheme: DefaultTheme = {
   colors: {
     main: '#2a364e',
     secondary: '#ecebeb',
+    secondaryDark: '#c4c4c4',
     error: '#c93737',
     mainHover: '2e4166',
   },

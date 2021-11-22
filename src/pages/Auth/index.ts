@@ -1,1 +1,0 @@
-export { AuthMain } from './AuthMain';

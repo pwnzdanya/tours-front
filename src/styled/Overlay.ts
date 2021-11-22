@@ -1,11 +1,17 @@
 import styled from 'styled-components';
 
 export const Overlay = styled.div`
-  position: absolute;
-  left: 0;
+  export const Overlay = styled.div
+  z-index: 20;
+  height: 100vh;
+  width: 100vw;
+  position: fixed;
+  background-color: rgba(0, 0, 0, 0.4);
   top: 0;
-  height: 100%;
-  width: 100%;
-  background-color: black;
-  opacity: 0.3;
+  left: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  pointer-events: all;
+
 `;
